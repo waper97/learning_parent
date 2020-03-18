@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.waper.spider.mapper.NovelMapper">
+
+    <resultMap id="baseReultMap" type="com.waper.spider.model.Chapter">
+        <id column="id" property="id" />
+        <result column="nexUrl" property="nextUrl" />
+        <result column="bookName" property="bookName" />
+        <result column="content" property="content"/>
+        <result column="chapterName" property="chapterName"/>
+    </resultMap>
+
+    <select id="listNovels"  parameterType="map" resultMap="baseReultMap">
+        select id, nextUrl ,bookName,content from novel
+    </select>
+
+    <insert id="saveNovel" parameterType="com.waper.spider.model.Chapter">
+        INSERT INTO novel(bookName, chapterName,content, nextUrl)
+        VALUES (#{bookName},#{chapterName}, #{content}, #{nextUrl});
+    </insert>
+
+</mapper>   
