@@ -8,7 +8,6 @@ package com.example.design_patterns.controller;
  */
 public class BaseController {
     public static void main(String[] args) {
-        SimDuck simDuck = new ModelDuck();
-        simDuck.fly();
+
     }
 }
